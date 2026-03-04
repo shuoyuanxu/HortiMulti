@@ -1,10 +1,10 @@
 # HortiMulti: A Multi-Sensor Dataset for Localisation and Mapping in Horticultural Polytunnels
 
-> **A multimodal, cross-season dataset to support the development of localisation and mapping systems for horticultural robots.**
+## A multimodal, cross-season dataset to support the development of localisation and mapping systems for horticultural robots
 
 ---
 
-## 📄 Paper
+ 📄 Paper
 
 > *HortiMulti: A Multi-Sensor Dataset for Localisation and Mapping in Horticultural Polytunnels*
 > 
