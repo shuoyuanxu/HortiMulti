@@ -12,22 +12,13 @@
 
 ---
 
-## Overview
-
-HortiMulti is the first comprehensive multi-sensor, multi-season dataset specifically targeting commercial horticultural polytunnel environments. It was collected across a full growing season (June 2025 – February 2026) at the Haygrove facilities in Newent, Herefordshire, UK, covering both **strawberry** (raised-table system) and **raspberry** (ground-pot system) polytunnels.
-
-The dataset captures conditions that directly degrade existing localisation and perception algorithms:
-
-- **Severe perceptual aliasing** from long, nearly identical rows and regularly spaced structural supports
-- **Dynamic foliage** violating the static-world assumption of LiDAR and visual SLAM
-- **Illumination instability** from translucent plastic covers and abrupt transitions at tunnel entrances
-- **GNSS unreliability** due to metallic structures and cover materials
-
-HortiMulti provides calibrated and time-synchronised multi-sensor recordings, survey-grade ground truth trajectories, and baseline benchmarks for visual, LiDAR, and multi-sensor SLAM, alongside place recognition evaluation.
+## Abstract
+Agricultural robotics is gaining increasing relevance in both research and real-world deployment. As these systems are expected to operate autonomously in more complex tasks, the availability of representative real-world datasets becomes essential. While domains such as urban and forestry robotics benefit from large and established benchmarks, horticultural environments remain comparatively under-explored despite the economic significance of this sector. To address this gap, we present HortiMulti, a multimodal, cross-season dataset collected in commercial strawberry and raspberry polytunnels across an entire growing season, capturing substantial appearance variation, dynamic foliage, specular reflections from plastic covers, severe perceptual aliasing, and GNSS-unreliable conditions — all of which directly degrade existing localisation and perception algorithms. The sensor suite includes two 3D LiDARs, four RGB cameras, an IMU, GNSS, and wheel odometry. Ground truth trajectories are derived from a combination of Total Station surveying, AprilTag fiducial markers, and LiDAR-inertial odometry, spanning dense, sparse, and marker-free coverage to support evaluation under both controlled and realistic conditions. We release time-synchronised raw measurements, calibration files, reference trajectories, and baseline benchmarks for visual, LiDAR, and multi-sensor SLAM, with results confirming that current state-of-the-art methods remain inadequate for reliable polytunnel deployment, establishing HortiMulti as a one-stop resource for developing and testing robotic perception systems in horticulture environments.
 
 <p align="center">
   <img src="images/summrise.png" width="90%" alt="HortiMulti overview"/>
 </p>
+<img width="2962" height="1312" alt="image" src="https://github.com/user-attachments/assets/73d6025d-b19e-47e5-bc54-e508152db6c1" />
 
 ---
 
