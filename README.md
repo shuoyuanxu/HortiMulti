@@ -9,17 +9,6 @@ Shuoyuan Xu, Zhipeng Zhong, Tiago Barros, Matthew Coombes, Cristiano Premebida, 
 Agricultural robotics is gaining increasing relevance in both research and real-world deployment. As these systems are expected to operate autonomously in more complex tasks, the availability of representative real-world datasets becomes essential. While domains such as urban and forestry robotics benefit from large and established benchmarks, horticultural environments remain comparatively under-explored despite the economic significance of this sector. To address this gap, we present HortiMulti, a multimodal, cross-season dataset collected in commercial strawberry and raspberry polytunnels across an entire growing season, capturing substantial appearance variation, dynamic foliage, specular reflections from plastic covers, severe perceptual aliasing, and GNSS-unreliable conditions — all of which directly degrade existing localisation and perception algorithms. The sensor suite includes two 3D LiDARs, four RGB cameras, an IMU, GNSS, and wheel odometry. Ground truth trajectories are derived from a combination of Total Station surveying, AprilTag fiducial markers, and LiDAR-inertial odometry, spanning dense, sparse, and marker-free coverage to support evaluation under both controlled and realistic conditions. We release time-synchronised raw measurements, calibration files, reference trajectories, and baseline benchmarks for visual, LiDAR, and multi-sensor SLAM, with results confirming that current state-of-the-art methods remain inadequate for reliable polytunnel deployment, establishing HortiMulti as a one-stop resource for developing and testing robotic perception systems in horticulture environments.
 <img width="2962" height="1312" alt="image" src="https://github.com/user-attachments/assets/73d6025d-b19e-47e5-bc54-e508152db6c1" />
 
----
-
-## Environments
-
-| Environment | Tunnels | Length | Width | Configuration |
-|---|---|---|---|---|
-| Strawberry | 8 | 160 m | 10 m | Raised tabletop (1.5 m), 6 plant rows |
-| Raspberry | 6 | 120 m | 10 m | Ground-pot, dense canopy coverage |
-
----
-
 ## Sensor Suite
 <img width="724" height="554" alt="image" src="https://github.com/user-attachments/assets/bb9fdb2d-0c5e-4b69-a448-1dd7d81b3541" />
 
