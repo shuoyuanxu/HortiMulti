@@ -22,7 +22,9 @@ Agricultural robotics is gaining increasing relevance in both research and real-
 | GNSS | u-blox ZED-F9P | Multi-band, RTK <0.02 m, 8 Hz |
 | Wheel Odometry | Encoders | Differential drive, <1 mm/tick |
 
-The camera configuration comprises a **forward-facing stereo pair** (140 mm baseline) plus **two side-facing cameras** at 45°. All sensors are hardware-triggered at 10 Hz and GPS-time-synchronised across all compute hosts via Chrony + PPS.
+The camera configuration comprises a **forward-facing stereo pair** (140 mm baseline) plus **two side-facing cameras** at 45°. Cameras and LiDARs are hardware-triggered at 10 Hz.
+
+
 
 ---
 
