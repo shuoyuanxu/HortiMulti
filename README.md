@@ -21,7 +21,7 @@ Agricultural robotics is gaining increasing relevance in both research and real-
 ---
 
 ## Sensor Suite
-<img width="1862" height="1777" alt="image" src="https://github.com/user-attachments/assets/f8774911-a35f-4210-b8ab-6b57e8ded77d" />
+<img width="1449" height="1108" alt="image" src="https://github.com/user-attachments/assets/bb9fdb2d-0c5e-4b69-a448-1dd7d81b3541" />
 | Sensor | Model | Specification |
 |---|---|---|
 | Spinning LiDAR | Ouster OS0-64 | 64 ch, 360°×90° FoV, 0–75 m, 10 Hz |
