@@ -36,8 +36,8 @@ Ground truth trajectories and AprilTag map [[csv](https://github.com/shuoyuanxu/
 **AprilTag deployment:**
 - **Strawberry**: 960 tags permanently mounted in a diamond formation across 8 tunnels; one tunnel with dense 2–3 m spacing for high-precision validation, remaining tunnels with sparse start and end coverage
 - **Raspberry**: Paired tags clipped to flexible mounting points to accommodate unpredictable plant growth
-![strawberryTags](https://github.com/user-attachments/assets/498529ca-2ca4-4697-a6ba-9fc23d61085d)
-![raspberryTags](https://github.com/user-attachments/assets/dbef19b2-f1ba-4f84-b497-ac721ead0e9c)
+<img width="500" height="383" alt="image" src="https://github.com/user-attachments/assets/498529ca-2ca4-4697-a6ba-9fc23d61085d" />
+<img width="500" height="383" alt="image" src="https://github.com/user-attachments/assets/dbef19b2-f1ba-4f84-b497-ac721ead0e9c" />)
 
 ---
 
