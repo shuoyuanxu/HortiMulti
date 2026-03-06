@@ -1,5 +1,5 @@
-![123](https://github.com/user-attachments/assets/106330fb-69f8-432a-b283-b70c7d5366f8)# HortiMulti: A Multi-Sensor Dataset for Localisation and Mapping in Horticultural Polytunnels
-![123](https://github.com/user-attachments/assets/aced6a41-98a3-4914-9ac2-642f1331d1fc)
+# HortiMulti: A Multi-Sensor Dataset for Localisation and Mapping in Horticultural Polytunnels
+
 
 ## A multimodal, cross-season dataset to support the development of localisation and mapping systems for horticultural robots
 
@@ -10,7 +10,7 @@ Shuoyuan Xu, Zhipeng Zhong, Tiago Barros, Matthew Coombes, Cristiano Premebida, 
 HortiMulti is a multimodal, cross-season dataset collected in commercial strawberry and raspberry polytunnels, capturing appearance variation, dynamic foliage, perceptual aliasing, and GNSS-unreliable conditions that degrade existing localisation algorithms. The sensor suite includes two 3D LiDARs, four RGB cameras, an IMU, GNSS, and wheel odometry, with ground truth derived from Total Station surveying, AprilTag fiducial markers, and LiDAR-inertial odometry. We release time-synchronised raw measurements, calibration files, survey constrainted Apriltag map, and ground truth trajectories. Some baseline benchmarks for visual, LiDAR, and multi-sensor SLAM indicate that current state-of-the-art methods remain inadequate for reliable polytunnel deployment.
 
 <img width="2962" height="1312" alt="image" src="https://github.com/user-attachments/assets/73d6025d-b19e-47e5-bc54-e508152db6c1" />
-
+![123](https://github.com/user-attachments/assets/aced6a41-98a3-4914-9ac2-642f1331d1fc)
 ## Sensor Setup
 <img width="500" height="383" alt="image" src="https://github.com/user-attachments/assets/bb9fdb2d-0c5e-4b69-a448-1dd7d81b3541" />
 
