@@ -86,6 +86,18 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 ---
 
+
+## Timeline
+
+| Date | Event |
+|---|---|
+| Mar/2026 | GitHub repository opened |
+| TBD | ROS bag data released |
+| TBD | Ground truth trajectories released |
+| TBD | Calibration files released |
+| TBD | Benchmark evaluation tools released |
+| Feb/2026 | Paper submitted |
+
 ## Acknowledgements
 
 Data was collected at Haygrove Ltd, Newent, Herefordshire, UK. We thank the farm staff for their support during data collection campaigns.
