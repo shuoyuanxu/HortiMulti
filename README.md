@@ -106,16 +106,13 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 ### Sequences
 
-| Sequence | Date | Tunnel Type | Distance (m) | Duration (s) | Size (GB) | Rows | Trajectory Type | Ground Truth |
-|---|---|---|---|---|---|---|---|---|
-| Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 37.1 | — | Multi-row | Poly-TagSLAM + Total Station |
-| Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 40.3 | — | Multi-row | Poly-TagSLAM + Total Station |
-| Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.2 | — | Single-tunnel | Poly-TagSLAM + Total Station |
-| Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 16.9 | — | Single-tunnel | Poly-TagSLAM + Total Station |
-| Strawberry_1 | Jun 2025 | Strawberry | — | — | — | 7 | Multi-row | Poly-TagSLAM + Total Station |
-| Strawberry_1 | Nov 2025 | Strawberry | — | — | — | 4 | Multi-row | Poly-TagSLAM + Total Station |
-| Raspberry_1 | Jun 2025 | Raspberry | — | — | — | 4 | Multi-row | Poly-TagSLAM |
-| Raspberry_1 | Aug 2025 | Raspberry | — | — | — | 8 | Multi-row | Poly-TagSLAM |
+| Sequence | Date | Tunnel Type | Distance (m) | Duration (s) | Size (GB) | Trajectory Type | Download|
+|---|---|---|---|---|---|---|---|
+| Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 37.1 | 43.3 | Single-tunnel | |
+| Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 40.3 | 39.9 | Single-tunnel | |
+| Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.2 | 10.9 | Single-tunnel | |
+| Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 16.9 | 18.1 | Single-tunnel | |
+
 
 ### Download Link
 
