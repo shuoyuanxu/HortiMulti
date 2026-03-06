@@ -130,12 +130,3 @@ If you use HortiMulti in your research, please cite:
   year      = {2026}
 }
 ```
-
----
-
-## License
-
-This dataset is released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code in this repository is released under the [MIT License](LICENSE).
-
----
-
