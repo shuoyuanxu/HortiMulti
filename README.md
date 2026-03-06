@@ -108,10 +108,10 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 | Sequence | Date | Tunnel Type | Distance (m) | Duration (s) | Size (GB) | Trajectory Type | Download|
 |---|---|---|---|---|---|---|---|
-| Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 39.9 | Single-tunnel | |
-| Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 43.3 | Single-tunnel | |
-| Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.9 | Single-tunnel | |
-| Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 18.1 | Single-tunnel | |
+| Feb2026/Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 39.9 | Single-tunnel | |
+| Feb2026/Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 43.3 | Single-tunnel | |
+| Feb2026/Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.9 | Single-tunnel | |
+| Feb2026/Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 18.1 | Single-tunnel | |
 
 
 ### Download Link
