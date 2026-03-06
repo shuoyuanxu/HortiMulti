@@ -11,6 +11,7 @@ HortiMulti is a multimodal, cross-season dataset collected in commercial strawbe
 
 <img width="2962" height="1312" alt="image" src="https://github.com/user-attachments/assets/73d6025d-b19e-47e5-bc54-e508152db6c1" />
 ![123](https://github.com/user-attachments/assets/aced6a41-98a3-4914-9ac2-642f1331d1fc)
+
 ## Sensor Setup
 <img width="500" height="383" alt="image" src="https://github.com/user-attachments/assets/bb9fdb2d-0c5e-4b69-a448-1dd7d81b3541" />
 
