@@ -91,12 +91,9 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 | Date | Event |
 |---|---|
-| Mar/2026 | GitHub repository opened |
-| TBD | ROS bag data released |
-| TBD | Ground truth trajectories released |
-| TBD | Calibration files released |
-| TBD | Benchmark evaluation tools released |
 | Feb/2026 | Paper submitted |
+| Mar/2026 | GitHub repository opened |
+| TBD | Data released |
 
 ## Acknowledgements
 
