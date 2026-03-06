@@ -44,7 +44,7 @@ Ground truth trajectories and AprilTag map [[csv](https://github.com/shuoyuanxu/
 ---
 
 
-## Dataset Collection
+## Dataset
 <img width="450" height="600" alt="image" src="https://github.com/user-attachments/assets/103008b0-0c07-4810-9f09-4e94bb53c0dd" />
 
 ### Environment
@@ -104,6 +104,18 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 ![213](https://github.com/user-attachments/assets/05c0730b-8088-48a1-a9e9-a1dad4db7a1d)
 
+### Sequences
+
+| Sequence | Date | Tunnel Type | Distance (m) | Duration (s) | Size (GB) | Rows | Trajectory Type | Ground Truth |
+|---|---|---|---|---|---|---|---|---|
+| Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 37.1 | — | Multi-row | Poly-TagSLAM + Total Station |
+| Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 40.3 | — | Multi-row | Poly-TagSLAM + Total Station |
+| Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.2 | — | Single-tunnel | Poly-TagSLAM + Total Station |
+| Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 16.9 | — | Single-tunnel | Poly-TagSLAM + Total Station |
+| Strawberry_1 | Jun 2025 | Strawberry | — | — | — | 7 | Multi-row | Poly-TagSLAM + Total Station |
+| Strawberry_1 | Nov 2025 | Strawberry | — | — | — | 4 | Multi-row | Poly-TagSLAM + Total Station |
+| Raspberry_1 | Jun 2025 | Raspberry | — | — | — | 4 | Multi-row | Poly-TagSLAM |
+| Raspberry_1 | Aug 2025 | Raspberry | — | — | — | 8 | Multi-row | Poly-TagSLAM |
 
 ### Download Link
 
