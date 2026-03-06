@@ -42,6 +42,7 @@ Ground truth trajectories and AprilTag map [[csv](https://github.com/shuoyuanxu/
 
 
 ## Dataset Structure
+<img width="450" height="600" alt="image" src="https://github.com/user-attachments/assets/103008b0-0c07-4810-9f09-4e94bb53c0dd" />
 
 ```
 /Dataset
@@ -62,7 +63,7 @@ Ground truth trajectories and AprilTag map [[csv](https://github.com/shuoyuanxu/
 ```
 
 > ⚠️ Calibration files are provided **per recording session**, as sensor configuration may vary between deployments. Always apply the calibration file from the matching session folder.
-
+Download Link:
 
 ### ROS Topics
 
@@ -85,20 +86,11 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 ---
 
+## Acknowledgements
 
-## Download
-<img width="450" height="600" alt="image" src="https://github.com/user-attachments/assets/103008b0-0c07-4810-9f09-4e94bb53c0dd" />
-
-| Resource | Link |
-|---|---|
-| Dataset (ROS bags) | [Coming soon](#) |
-| Ground truth trajectories | [Coming soon](#) |
-| Calibration files | [Coming soon](#) |
-| Evaluation tools | [Coming soon](#) |
-| Point cloud colourisation tools | [Coming soon](#) |
+Data was collected at Haygrove Ltd, Newent, Herefordshire, UK. We thank the farm staff for their support during data collection campaigns.
 
 ---
-
 
 ## Citation
 
@@ -108,7 +100,7 @@ If you use HortiMulti in your research, please cite:
 @article{hortimulti2026,
   title     = {HortiMulti: A Multi-Sensor Dataset for Localisation and Mapping in Horticultural Polytunnels},
   author    = {Xu, Shuoyuan and Zhong, Zhipeng and Barros, Tiago and Coombes, Matthew and Premebida, Cristiano and Wu, Hao and Liu, Cunjia},
-  journal   = {IEEE Transactions on ...},
+  journal   = {TBD},
   year      = {2026}
 }
 ```
@@ -121,6 +113,3 @@ This dataset is released under [CC BY 4.0](https://creativecommons.org/licenses/
 
 ---
 
-## Acknowledgements
-
-Data was collected at Haygrove Ltd, Newent, Herefordshire, UK. We thank the farm staff for their support during data collection campaigns.
