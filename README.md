@@ -81,7 +81,6 @@ Sequences were collected between **June 2025 and February 2026**, spanning the f
 ```
 
 > ⚠️ Calibration files are provided **per recording session**, as sensor configuration may vary between deployments. Always apply the calibration file from the matching session folder.
-Download Link:
 
 ### ROS Topics
 
