@@ -115,6 +115,8 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 
 ### Download Link
+**Temporary**
+https://drive.google.com/drive/folders/1UChodyZbG760JiMpzrl8pop3r-2PRS-j?usp=sharing
 
 ---
 
@@ -125,7 +127,7 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 |---|---|
 | Feb/2026 | Paper submitted |
 | Mar/2026 | GitHub repository opened |
-| TBD | Data released |
+| Mar/2026 | Dataset released (temporary link; official repository submission in progress).|
 
 ## Acknowledgements
 
