@@ -4,7 +4,7 @@
 ## A multimodal, cross-season dataset to support the development of localisation and mapping systems for horticultural robots
 
 ### Authors
-Shuoyuan Xu, Zhipeng Zhong, Tiago Barros, Yuchuan Jin, Matthew Coombes, Cristiano Premebida, Hao Wu, and Cunjia Liu
+[comment]: <Shuoyuan Xu, Zhipeng Zhong, Tiago Barros, Yuchuan Jin, Matthew Coombes, Cristiano Premebida, Hao Wu, and Cunjia Liu>
 
 ## Abstract
 HortiMulti is a multimodal, cross-season dataset collected in commercial strawberry and raspberry polytunnels, capturing appearance variation, dynamic foliage, perceptual aliasing, and GNSS-unreliable conditions that degrade existing localisation algorithms. The sensor suite includes two 3D LiDARs, four RGB cameras, an IMU, GNSS, and wheel odometry, with ground truth derived from Total Station surveying, AprilTag fiducial markers, and LiDAR-inertial odometry. We release time-synchronised raw measurements, calibration files, survey constrainted Apriltag map, and ground truth trajectories. Some baseline benchmarks for visual, LiDAR, and multi-sensor SLAM indicate that current state-of-the-art methods remain inadequate for reliable polytunnel deployment.
@@ -155,7 +155,7 @@ Data was collected at Haygrove Ltd, Newent, Herefordshire, UK. We thank the farm
 
 ## Citation
 
-If you use HortiMulti in your research, please cite:
+[comment]: <If you use HortiMulti in your research, please cite:
 
 ```bibtex
 @article{hortimulti2026,
@@ -165,3 +165,4 @@ If you use HortiMulti in your research, please cite:
   year      = {2026}
 }
 ```
+>
