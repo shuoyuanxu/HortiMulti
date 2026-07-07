@@ -155,14 +155,14 @@ Data was collected at Haygrove Ltd, Newent, Herefordshire, UK. We thank the farm
 
 ## Citation
 
-[comment]: <If you use HortiMulti in your research, please cite:
+If you use HortiMulti in your research, please cite:
 
 ```bibtex
-@article{hortimulti2026,
+[comment]: <@article{hortimulti2026,
   title     = {HortiMulti: A Multi-Sensor Dataset for Localisation and Mapping in Horticultural Polytunnels},
   author    = {Xu, Shuoyuan and Zhong, Zhipeng and Barros, Tiago and Coombes, Matthew and Premebida, Cristiano and Wu, Hao and Liu, Cunjia},
   journal   = {TBD},
   year      = {2026}
-}
+}>
 ```
->
+
