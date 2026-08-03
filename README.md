@@ -55,7 +55,7 @@ Data was collected at **Haygrove Ltd, Newent, Herefordshire, UK** across two com
 | Dimensions | 160 m × 10 m | 120 m × 10 m |
 | Cultivation system | Raised tabletop (breast height, 1.5 m) | Ground-based pot rows (~1 m spacing) |
 
-Sequences were collected between **June 2025 and February 2026**, spanning the full seasonal cycle from growing season through harvest to off-season. In total, **20 sequences** were collected across both tunnel types, comprising over **1.1 km** of trajectories. Sequences are designed to mimic real agricultural machinery operations and cover a range of complexity levels:
+Sequences were collected between **June 2025 and June 2026**, spanning the full seasonal cycle from growing season through harvest to off-season. **12 sequences** are currently released, spanning **Feb 2026 to Jun 2026** and comprising **6.16 km** of trajectories and **341 GB** of data; further sessions from the wider collection will be added over time. Sequences are designed to mimic real agricultural machinery operations and cover a range of complexity levels:
 
 - **Single-tunnel traversals** — representative of UV reatment or inspection runs
 - **Multi-tunnel routes** — extended traversals across multiple rows with frequent re-visits, representative of spraying tasks
@@ -65,22 +65,29 @@ Sequences were collected between **June 2025 and February 2026**, spanning the f
 ```
 /Dataset
 ├── Feb2026/
-│   ├── Strawberry_1/
-│   │   ├── Strawberry_1.bag       
-│   │   ├── GT_trajectory.csv      
-│   │   └── GT_tag.csv             
-│   ├── Raspberry_1/
-│   │   ├── Raspberry_1.bag
-│   │   ├── GT_trajectory.csv
-│   │   └── GT_tag.csv
-│   ├── calibration.yaml           
-│   └── ...
-├── Sep2025/
-│   └── ...
-└── ...
+│   └── Strawberry/
+│       ├── Strawberry_1/
+│       │   ├── Strawberry_1.bag            # all sensor streams
+│       │   ├── GT_trajectory.csv           # reference poses, sequence frame
+│       │   ├── GT_trajectory_global.csv    # reference poses, shared global frame
+│       │   └── GT_tag.csv                  # AprilTag map, sequence frame
+│       ├── Strawberry_2/ ...
+│       └── calibration.yaml                # one per session
+├── May2026/
+│   └── Strawberry/
+│       ├── Strawberry_1/ ...
+│       └── calibration.yaml
+└── Jun2026/
+    └── Raspberry/
+        ├── Raspberry_1/ ...
+        └── calibration.yaml
 ```
 
 > ⚠️ Calibration files are provided **per recording session**, as sensor configuration may vary between deployments. Always apply the calibration file from the matching session folder.
+
+**Ground truth files.** `GT_trajectory.csv` gives poses as `time, x, y, z, qw, qx, qy, qz` in that sequence's own frame (origin at its start pose), and `GT_tag.csv` gives the AprilTag map `id, x, y, z` in the *same* frame, so the two can be used together directly.
+
+`GT_trajectory_global.csv` gives the same poses in a single **global frame shared by every sequence and session**, as `time, east, north, up, qw, qx, qy, qz, latitude, longitude, altitude`. Use this to overlay trajectories across sequences or compare the same tunnel across seasons. The frame is East/North/Up, georeferenced to WGS84 at datum `51.94215620 N, -2.39797080 W, 106.698 m`.
 
 ### ROS Topics
 
@@ -90,15 +97,17 @@ Sequences were collected between **June 2025 and February 2026**, spanning the f
 | Velodyne LiDAR | `/velodyne_points` | `sensor_msgs/PointCloud2` | ~10 Hz |
 | Forward-Left Camera | `/forwardLeft/image_raw/compressed` | `sensor_msgs/CompressedImage` | ~10 Hz |
 | Forward-Right Camera | `/forwardRight/image_raw/compressed` | `sensor_msgs/CompressedImage` | ~10 Hz |
-| Left Camera | `/Left/image_raw/compressed` | `sensor_msgs/CompressedImage` | ~10 Hz |
-| Right Camera | `/Right/image_raw/compressed` | `sensor_msgs/CompressedImage` | ~10 Hz |
+| Left Camera | `/left/image_raw/compressed` | `sensor_msgs/CompressedImage` | ~10 Hz |
+| Right Camera | `/right/image_raw/compressed` | `sensor_msgs/CompressedImage` | ~10 Hz |
 | IMU | `/ms/imu/data` | `sensor_msgs/Imu` | ~200 Hz |
-| GNSS | `/antobot_gps` | `sensor_msgs/NavSatFix` | ~8 Hz |
+| Raw GPS | `/antobot_gps` | `sensor_msgs/NavSatFix` | ~8 Hz |
+| RTK GPS | `/ublox_position_receiver/fix` | `sensor_msgs/NavSatFix` | ~8 Hz |
 | Wheel Odometry | `/antobot_robot/odom` | `nav_msgs/Odometry` | ~25 Hz |
 | AprilTag Detections | `/<camera>/tag_detections` | `apriltag_ros/AprilTagDetectionArray` | ~10 Hz |
-| TF / TF Static | `/tf`, `/tf_static` | `tf2_msgs/TFMessage` | — |
 
-Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-based SLAM frameworks.
+> 📡 **GNSS differs by session.** `Feb2026` records raw GPS on `/antobot_gps` (no RTK fix flag, altitude in millimetres). `May2026` and `Jun2026` record RTK GPS on `/ublox_position_receiver/fix`, with `status.status = 2` marking RTK-fixed samples and altitude in metres.
+
+> 🧭 **No `/tf` tree is included.** The bags deliberately ship without `/tf` and `/tf_static`, since baked-in transforms are a common source of frame conflicts. Build the tree you need from the session's `calibration.yaml` instead. Camera intrinsics are additionally available on the `camera_info` topics.
 > 🔧 Colorised point cloud can be generated by our custom tool **Point_Cloud_RGB_colorising** [[code]([https://github.com/shuoyuanxu/Poly-TagSLAM](https://github.com/shuoyuanxu/Point_Cloud_RGB_colorising))].
 
 ![213](https://github.com/user-attachments/assets/05c0730b-8088-48a1-a9e9-a1dad4db7a1d)
@@ -107,34 +116,69 @@ Extrinsic calibrations are embedded in the `/tf` tree for direct use in ROS-base
 
 | Sequence | Date | Tunnel Type | Distance (m) | Duration (s) | Size (GB) | Trajectory Type | Download|
 |---|---|---|---|---|---|---|---|
-| Feb2026/Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 39.9 | Single-tunnel | |
-| Feb2026/Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 43.3 | Single-tunnel | |
-| Feb2026/Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.9 | Single-tunnel | |
-| Feb2025/Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 18.1 | Single-tunnel | |
-| Nov2025/Strawberry_1 | Nov 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Nov2025/Strawberry_2 | Nov 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Nov2025/Strawberry_3 | Nov 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Strawberry_1 | Aug 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Strawberry_1 | Aug 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Strawberry_1 | Aug 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Sep2025/Raspberry_1 | Sep 2025 | Raspberry |  |  |  | Multiple-tunnel | |
-| Sep2025/Raspberry_2 | Sep 2025 | Raspberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Strawberry_1 | Aug 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Strawberry_2 | Aug 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Raspberry_1 | Aug 2025 | Raspberry |  |  |  | Multiple-tunnel | |
-| Aug2025/Raspberry_2 | Aug 2025 | Raspberry |  |  |  | Multiple-tunnel | |
-| Jun2025/Strawberry_1 | Jun 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Jun2025/Strawberry_2 | Jun 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Jun2025/Strawberry_3 | Jun 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| Jun2025/Raspberry_1 | Jun 2025 | Raspberry |  |  |  | Multiple-tunnel | |
-| May2025/Strawberry_1 | May 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| May2025/Strawberry_2 | May 2025 | Strawberry |  |  |  | Multiple-tunnel | |
-| May2025/Strawberry_3 | May 2025 | Strawberry |  |  |  | Multiple-tunnel | |
+| Feb2026/Strawberry_1 | Feb 2026 | Strawberry | 951.60 | 876 | 39.9 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Feb2026/Strawberry/Strawberry_1/Strawberry_1.bag) |
+| Feb2026/Strawberry_2 | Feb 2026 | Strawberry | 940.90 | 952 | 43.3 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Feb2026/Strawberry/Strawberry_2/Strawberry_2.bag) |
+| Feb2026/Strawberry_3 | Feb 2026 | Strawberry | 231.02 | 242 | 10.9 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Feb2026/Strawberry/Strawberry_3/Strawberry_3.bag) |
+| Feb2026/Strawberry_4 | Feb 2026 | Strawberry | 350.37 | 348 | 15.7 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Feb2026/Strawberry/Strawberry_4/Strawberry_4.bag) |
+| May2026/Strawberry_1 | May 2026 | Strawberry | 969.24 | 985 | 51.9 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/May2026/Strawberry/Strawberry_1/Strawberry_1.bag) |
+| May2026/Strawberry_2 | May 2026 | Strawberry | 981.13 | 1036 | 55.3 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/May2026/Strawberry/Strawberry_2/Strawberry_2.bag) |
+| May2026/Strawberry_3 | May 2026 | Strawberry | 328.03 | 385 | 20.7 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/May2026/Strawberry/Strawberry_3/Strawberry_3.bag) |
+| May2026/Strawberry_4 | May 2026 | Strawberry | 346.30 | 454 | 23.5 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/May2026/Strawberry/Strawberry_4/Strawberry_4.bag) |
+| Jun2026/Raspberry_1 | Jun 2026 | Raspberry | 351.91 | 470 | 26.9 | Multiple-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Jun2026/Raspberry/Raspberry_1/Raspberry_1.bag) |
+| Jun2026/Raspberry_2 | Jun 2026 | Raspberry | 358.25 | 455 | 25.7 | Multiple-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Jun2026/Raspberry/Raspberry_2/Raspberry_2.bag) |
+| Jun2026/Raspberry_3 | Jun 2026 | Raspberry | 133.70 | 232 | 13.0 | Multiple-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Jun2026/Raspberry/Raspberry_3/Raspberry_3.bag) |
+| Jun2026/Raspberry_4 | Jun 2026 | Raspberry | 215.05 | 250 | 14.0 | Single-tunnel | [bag](https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Jun2026/Raspberry/Raspberry_4/Raspberry_4.bag) |
 
 
-### Download Link
-**Temporary**
-https://drive.google.com/drive/folders/1UChodyZbG760JiMpzrl8pop3r-2PRS-j?usp=sharing
+### Download
+
+The dataset is hosted on the **EIDF S3 data store** and is publicly readable — **no account or credentials are required**.
+
+**Individual files** — click the `bag` links in the table above, or use the URL pattern directly:
+
+```
+https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/<Session>/<Crop>/<Sequence>/<file>
+```
+
+For example, to fetch one sequence's bag plus its ground truth:
+
+```bash
+BASE=https://s3.eidf.ac.uk/eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels
+SEQ=May2026/Strawberry/Strawberry_4
+
+wget $BASE/$SEQ/Strawberry_4.bag
+wget $BASE/$SEQ/GT_trajectory.csv
+wget $BASE/$SEQ/GT_tag.csv
+wget $BASE/$SEQ/GT_trajectory_global.csv
+wget $BASE/May2026/Strawberry/calibration.yaml
+```
+
+**Whole sessions or the full dataset** — use the AWS CLI with `--no-sign-request`, which is what allows anonymous access. This resumes and skips files you already have, so it is the safest option for the larger bags:
+
+```bash
+# everything (~318 GB)
+aws s3 sync s3://eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels ./HortiMulti \
+    --endpoint-url https://s3.eidf.ac.uk --no-sign-request
+
+# a single session
+aws s3 sync s3://eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels/Jun2026 ./HortiMulti/Jun2026 \
+    --endpoint-url https://s3.eidf.ac.uk --no-sign-request
+
+# ground truth and calibration only, no bags (a few MB)
+aws s3 sync s3://eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels ./HortiMulti \
+    --endpoint-url https://s3.eidf.ac.uk --no-sign-request \
+    --exclude "*" --include "*.csv" --include "*.yaml"
+```
+
+**Browse the contents** without downloading:
+
+```bash
+aws s3 ls s3://eidf258-hortimulti-a-multi-sensor-dataset-for-polytunnels --recursive \
+    --human-readable --endpoint-url https://s3.eidf.ac.uk --no-sign-request
+```
+
+**Catalogue entry** (metadata, licence and citation):
+https://catalogue.eidf.ac.uk/dataset/eidf258-hortimulti-a-multi-sensor-dataset-for-localisation-and-mapping-in-horticultural-polytunnels
 
 ---
 
